@@ -11,7 +11,9 @@ X = np.array([[0], [1], [1], [1], [0], [1], [1], [0], [0], [1], [1], [0], [0], [
 
 Y = np.array([137, 118, 124, 124, 120, 129, 122, 142, 128, 114, 132, 130, 130, 112, 132, 117, 134, 132, 121, 128])
 
-model = LinearRegression().fit([W, X], Y)
+features = np.hstack([W, X])
+
+model = LinearRegression().fit(features, Y)
 
 @app.route("/predict")
 def predict():
