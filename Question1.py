@@ -25,10 +25,12 @@ model_stats = sm.OLS(data["Y"], X_reg).fit()
 alpha = model_stats.params["const"]
 tau = model_stats.params["W"]
 beta = model_stats.params["X"]
+p_value = model_stats.pvalues["W"]
 
 print("Intercept (α):", round(alpha, 2))
 print("Treatment Effect (τ̂):", round(tau, 2))
 print("Spending Effect (β):", round(beta, 2))
+print("P-value for τ̂:", round(p_value, 4))
 
 print("\nStatistical Summary:")
 print(model_stats.summary())
