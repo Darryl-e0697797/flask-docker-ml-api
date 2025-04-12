@@ -27,7 +27,7 @@ data = pd.DataFrame({
 
 # Adding intercept for OLS model
 X_reg = sm.add_constant(data[["W", "X"]])
-ols_model = sm.ols(data["Y"], X_reg).fit()
+ols_model = sm.OLS(data["Y"], X_reg).fit()
 
 # Log model summary to file
 with open("model_summary.txt", "w") as f:
