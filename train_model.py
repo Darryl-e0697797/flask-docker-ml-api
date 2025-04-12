@@ -28,7 +28,7 @@ def run_analysis():
         'tau': model_stats.params['W'],
         'beta': model_stats.params['X'],
         'model_summary': str(model_stats.summary())
-    }
+        }
     
     # Save to pickle file
     with open('model_params.pkl', 'wb') as f:
