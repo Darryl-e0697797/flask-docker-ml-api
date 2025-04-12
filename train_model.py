@@ -23,19 +23,19 @@ def run_analysis():
   model_stats = sm.OLS(data["Y"], X_reg).fit()
   
   # Save model parameters to a dictionary
-    params = {
-        'intercept': model_stats.params['const'],
-        'tau': model_stats.params['W'],
-        'beta': model_stats.params['X'],
-        'model_summary': str(model_stats.summary())
-        }
+  params = {
+    'intercept': model_stats.params['const'],
+    'tau': model_stats.params['W'],
+    'beta': model_stats.params['X'],
+    'model_summary': str(model_stats.summary())
+  }
     
-    # Save to pickle file
-    with open('model_params.pkl', 'wb') as f:
-        pickle.dump(params, f)
+  # Save to pickle file
+  with open('model_params.pkl', 'wb') as f:
+    pickle.dump(params, f)
     
-    return params
-
+  return params
+  
 if __name__ == '__main__':
     params = run_analysis()
     print("Model parameters saved to model_params.pkl")
